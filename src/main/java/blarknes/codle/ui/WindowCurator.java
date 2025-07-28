@@ -27,6 +27,7 @@ public class WindowCurator {
         StackPane root = new StackPane();
         root.getChildren().add(new Text("TODO: implement this screen"));
         stage.setScene(new Scene(root));
+        stage.centerOnScreen(); // TODO: this method does not work as expected, find a workaround
         stage.show();
     }
 
