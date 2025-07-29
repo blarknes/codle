@@ -1,7 +1,36 @@
-[ ] write readme
-[ ] integrate with sqlite
-[ ] create layout for initial screen
-[ ] add theme
-[ ] add javadocs
-[ ] add icon on taskbar and titlebar
-[ ] add docker
+[ ] general stuff to do
+  [ ] make logo - get inspiration from wordle-like games
+    [ ] add logo to OS taskbar and window titlebar
+  [ ] write readme
+  [ ] integrate with sqlite
+    [ ] store possible languages on local db
+    [?] if stats add it to db as well
+  [ ] add javadocs
+  [ ] add docker
+  [ ] add tests
+    [ ] figure out a way to test the UI of the screens
+
+[ ] design screens
+  [ ] main screen
+    [ ] brief description
+    [ ] play button
+    [?] settings button - what would we have here?
+      [?] language selection with i18n?
+      [?] screen resolution presets, but still give option to enlarge/shrink manually
+      [?] stats - maybe instead of hide this behind the settings screen have a screen only for it? would help with simmetry
+        [?] languages found - inspiration from Balatro library
+        [?] best time
+        [?] worst time
+        [?] fewest guesses - best case scenario this will be 1, I don't know if it's a relevant stat to show
+        [?] most guesses - will the game allow more than X tries?
+        [?] most guessed language
+  [ ] game screen
+    [?] will allow more than X tries?
+    [ ] categories
+      [ ] logo color[s]
+      [ ] release date - black if wrong by 2 years, yellow if wrong by 1 year and green if year == true
+      [ ] funcional/oop
+      [ ] compiled or interpreted
+      [?] country of origin
+    [ ] some kind of animation when guessing correct
+    [?] display visual keyboard? I think it's better not to
