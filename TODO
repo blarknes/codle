@@ -9,6 +9,7 @@
   [ ] add docker
   [ ] add tests
     [ ] figure out a way to test the UI of the screens
+  [ ] handle JavaFX errors better
 
 [ ] design screens
   [ ] main screen

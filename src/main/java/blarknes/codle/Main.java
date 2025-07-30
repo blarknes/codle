@@ -1,5 +1,7 @@
 package blarknes.codle;
 
+import static blarknes.codle.string.StringUtilities.EMPTY_STRING_ARRAY;
+
 import java.util.Objects;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -11,13 +13,15 @@ import blarknes.codle.lifecycle.shutdown.ShutdownReason;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.val;
+import lombok.extern.apachecommons.CommonsLog;
 
+@CommonsLog
 public class Main extends Application {
 
     private static Class<Launcher> springApplicationClass;
     private ConfigurableApplicationContext springContext;
 
-    private static String SPRING_STARTUP_ERROR_MESSAGE = "Failed to initialize Spring Context";
+    private final String SPRING_STARTUP_ERROR_MESSAGE = "Failed to initialize Spring Context";
 
     public static void start(final Class<Launcher> springApplicationClass, final String[] args) {
         Main.springApplicationClass = springApplicationClass;
@@ -27,7 +31,7 @@ public class Main extends Application {
     @Override
     public void init() {
         try {
-            val parameters = getParameters().getRaw().toArray(new String[0]);
+            val parameters = getParameters().getRaw().toArray(EMPTY_STRING_ARRAY);
 
             springContext = new SpringApplicationBuilder()
                 .sources(springApplicationClass)
