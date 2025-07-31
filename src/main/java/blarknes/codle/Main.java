@@ -21,7 +21,7 @@ public class Main extends Application {
     private static Class<Launcher> springApplicationClass;
     private ConfigurableApplicationContext springContext;
 
-    private final String SPRING_STARTUP_ERROR_MESSAGE = "Failed to initialize Spring Context";
+    private static final String SPRING_STARTUP_ERROR_MESSAGE = "Failed to initialize Spring Context";
 
     public static void start(final Class<Launcher> springApplicationClass, final String[] args) {
         Main.springApplicationClass = springApplicationClass;

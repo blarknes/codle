@@ -8,21 +8,21 @@ import lombok.val;
 
 public class CodleIcon {
 
-    private final String ICON_IMAGE_PATH = "/icon.png";
+    private static final String ICON_IMAGE_PATH = "/icon.png";
 
-    public Pane asSVG() {
+    public Image asImage() {
+        val icon = new Image(getClass().getResourceAsStream(ICON_IMAGE_PATH));
+
+        return icon;
+    }
+
+    public Pane asPane() {
         val background = background();
         val innerSquare = innerSquare();
         val yellowSquare = yellowSquare();
         val greenSquare = greenSquare();
         val consoleSVG = consoleSVG();
         val icon = new Pane(background, innerSquare, yellowSquare, greenSquare, consoleSVG);
-
-        return icon;
-    }
-
-    public Image asImage() {
-        val icon = new Image(getClass().getResourceAsStream(ICON_IMAGE_PATH));
 
         return icon;
     }

@@ -1,7 +1,9 @@
 package blarknes.codle.ui;
 
 import javafx.scene.paint.Color;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class CustomColor {
 
     public static final Color NIGHT          = Color.web("#121212");
