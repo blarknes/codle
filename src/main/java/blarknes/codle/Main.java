@@ -13,9 +13,7 @@ import blarknes.codle.lifecycle.shutdown.ShutdownReason;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.val;
-import lombok.extern.apachecommons.CommonsLog;
 
-@CommonsLog
 public class Main extends Application {
 
     private static Class<Launcher> springApplicationClass;
