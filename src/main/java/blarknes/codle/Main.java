@@ -16,13 +16,13 @@ import lombok.val;
 
 public class Main extends Application {
 
-    private static Class<Launcher> springApplicationClass;
-    private ConfigurableApplicationContext springContext;
+    private static Class<Launcher> springClass;
+    private ConfigurableApplicationContext context;
 
     private static final String SPRING_STARTUP_ERROR_MESSAGE = "Failed to initialize Spring Context";
 
-    public static void start(final Class<Launcher> springApplicationClass, final String[] args) {
-        Main.springApplicationClass = springApplicationClass;
+    public static void start(final Class<Launcher> springClass, final String[] args) {
+        Main.springClass = springClass;
         Application.launch(Main.class, args);
     }
 
@@ -31,11 +31,11 @@ public class Main extends Application {
         try {
             val parameters = getParameters().getRaw().toArray(EMPTY_STRING_ARRAY);
 
-            springContext = new SpringApplicationBuilder()
-                .sources(springApplicationClass)
+            context = new SpringApplicationBuilder()
+                .sources(springClass)
                 .run(parameters);
 
-            if (Objects.isNull(springContext)) {
+            if (Objects.isNull(context)) {
                 throw new RuntimeException();
             }
         } catch (Exception exception) {
@@ -45,7 +45,7 @@ public class Main extends Application {
 
     @Override
     public void start(final Stage stage) {
-        springContext.publishEvent(new StartupEvent(stage));
+        context.publishEvent(new StartupEvent(stage));
     }
 
     @Override
