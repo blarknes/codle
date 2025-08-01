@@ -6,7 +6,7 @@ import blarknes.codle.ui.screen.home.HomeScreen;
 import javafx.stage.Stage;
 
 @Component
-public class ScreenManager {
+public class ScreenRouter {
 
     public void showHomeScreen(final Stage stage) {
         HomeScreen.builder()
