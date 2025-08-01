@@ -1,10 +1,10 @@
 package blarknes.codle.lifecycle.shutdown;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum ShutdownStatus {
 
     SUCCESS(0),
