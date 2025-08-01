@@ -4,7 +4,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import blarknes.codle.lifecycle.StartupEvent;
-import blarknes.codle.ui.screen.ScreenManager;
+import blarknes.codle.ui.screen.ScreenRouter;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 
@@ -12,8 +12,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WindowManager {
 
-    private final StageInitializer initializer;
-    private final ScreenManager screenManager;
+    private final MainStage mainStage;
+    private final ScreenRouter screenRouter;
 
     private Stage stage;
 
@@ -21,8 +21,8 @@ public class WindowManager {
     public void onStartupEvent(final StartupEvent event) {
         this.stage = event.getStage();
 
-        initializer.initialize(this.stage);
-        screenManager.showHomeScreen(this.stage);
+        mainStage.initialize(this.stage);
+        screenRouter.showHomeScreen(this.stage);
 
         this.stage.show();
     }
