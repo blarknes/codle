@@ -12,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 public class HomeScreen extends Screen {
 
     public Scene getScene() {
+        // TODO: update this
         val root = new StackPane();
         final CodleIcon codleIcon = new CodleIcon();
         val icon = codleIcon.asPane();
