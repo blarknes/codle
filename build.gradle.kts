@@ -31,6 +31,13 @@ configurations {
 dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    // Hibernate
+    implementation("org.hibernate.orm:hibernate-community-dialects:7.0.8.Final")
+
+    // SQLite
+    implementation("org.xerial:sqlite-jdbc:3.50.3.0")
 
     // Lombok
     compileOnly("org.projectlombok:lombok")

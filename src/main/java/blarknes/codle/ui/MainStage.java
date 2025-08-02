@@ -34,34 +34,42 @@ public class MainStage {
         this.stage.getIcons().add(icon);
         this.stage.setTitle(title);
 
-        setWindowMode();
-        centerStageOnScreen();
-    }
-
-    private void setWindowMode() {
-        val bounds = Screen.getPrimary().getVisualBounds();
-        val isWidthBelowThreshold = bounds.getWidth() < settingsService.getStageWidth();
-        val isHeightBelowThreshold = bounds.getHeight() < settingsService.getStageHeight();
-
-        if (isWidthBelowThreshold || isHeightBelowThreshold) {
+        val isFullScreen = shouldBeFullScreen();
+        if (isFullScreen) {
             enterFullScreen();
         } else {
             enterWindowed();
         }
+
+        centerStageOnScreen();
     }
 
-    private void enterWindowed() {
-        this.stage.setWidth(settingsService.getStageWidth());
-        this.stage.setHeight(settingsService.getStageHeight());
+    private boolean shouldBeFullScreen() {
+        val settings = settingsService.getSettings();
+        val bounds = Screen.getPrimary().getVisualBounds();
 
-        this.stage.setMinWidth(MINIMUM_STAGE_WIDTH);
-        this.stage.setMinHeight(MINIMUM_STAGE_HEIGHT);
+        val hasWidthOverflow = bounds.getWidth() < settings.getStageWidth();
+        val hasHeightOverflow = bounds.getHeight() < settings.getStageHeight();
+        val hasSetFullScreen = settings.isFullScreen();
+        val shouldEnterFullScreen = hasWidthOverflow || hasHeightOverflow || hasSetFullScreen;
+
+        return shouldEnterFullScreen;
     }
 
     private void enterFullScreen() {
         this.stage.setFullScreen(true);
         this.stage.setFullScreenExitHint(EMPTY_STRING);
         this.stage.setFullScreenExitKeyCombination(NO_MATCH);
+    }
+
+    private void enterWindowed() {
+        val settings = settingsService.getSettings();
+
+        this.stage.setWidth(settings.getStageWidth());
+        this.stage.setHeight(settings.getStageHeight());
+
+        this.stage.setMinWidth(MINIMUM_STAGE_WIDTH);
+        this.stage.setMinHeight(MINIMUM_STAGE_HEIGHT);
     }
 
     private void centerStageOnScreen() {
