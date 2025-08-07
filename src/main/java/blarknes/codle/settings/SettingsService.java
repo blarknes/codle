@@ -1,6 +1,6 @@
-package blarknes.codle.ui.player;
+package blarknes.codle.settings;
 
-import static blarknes.codle.ui.player.Language.EN;
+import static blarknes.codle.settings.Language.EN;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package blarknes.codle.ui.player;
+package blarknes.codle.settings;
 
 public enum Language {
 

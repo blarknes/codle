@@ -1,4 +1,4 @@
-package blarknes.codle.ui.asset;
+package blarknes.codle.graphic.asset;
 
 import javafx.scene.paint.Color;
 import lombok.experimental.UtilityClass;

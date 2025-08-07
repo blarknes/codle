@@ -1,24 +1,29 @@
-package blarknes.codle.ui.screen.home;
+package blarknes.codle.graphic.screen;
 
-import blarknes.codle.ui.asset.CodleIcon;
-import blarknes.codle.ui.player.SettingsService;
-import blarknes.codle.ui.screen.Screen;
+import org.springframework.stereotype.Component;
+
+import blarknes.codle.graphic.MainStage;
+import blarknes.codle.graphic.asset.CodleIcon;
+import blarknes.codle.settings.SettingsService;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import lombok.val;
-import lombok.experimental.SuperBuilder;
 
-@SuperBuilder
+@Component
 public class HomeScreen extends Screen {
 
     private final SettingsService settingsService;
 
+    public HomeScreen(final MainStage mainStage, final SettingsService settingsService) {
+        super(mainStage);
+        this.settingsService = settingsService;
+    }
+
     public Scene getScene() {
         val root = new StackPane();
-        final CodleIcon codleIcon = new CodleIcon();
-        val icon = codleIcon.asPane();
+        val icon = new CodleIcon().asPane();
         val todo = new Text("TODO: implement this screen");
 
         Button btn = new Button();

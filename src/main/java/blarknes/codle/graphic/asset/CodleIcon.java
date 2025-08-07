@@ -1,4 +1,4 @@
-package blarknes.codle.ui.asset;
+package blarknes.codle.graphic.asset;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;

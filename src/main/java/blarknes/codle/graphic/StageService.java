@@ -1,47 +1,56 @@
-package blarknes.codle.ui;
+package blarknes.codle.graphic;
 
 import static blarknes.codle.string.StringUtilities.EMPTY_STRING;
 import static javafx.scene.input.KeyCombination.NO_MATCH;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import blarknes.codle.ui.asset.CodleIcon;
-import blarknes.codle.ui.player.SettingsService;
+import blarknes.codle.graphic.asset.CodleIcon;
+import blarknes.codle.settings.SettingsService;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
-@Component
+@Service
 @RequiredArgsConstructor
-public class MainStage {
+public class StageService {
 
+    private final MainStage mainStage;
     private final SettingsService settingsService;
 
     @Value("${spring.application.name}")
     private String title;
 
-    private Stage stage;
-
     private static final int MINIMUM_STAGE_WIDTH = 1024;
     private static final int MINIMUM_STAGE_HEIGHT = 576;
 
-    public void initialize(final Stage stage) {
-        this.stage = stage;
+    public void initialize() {
+        val stage = mainStage.get();
 
         val icon = new CodleIcon().asImage();
-        this.stage.getIcons().add(icon);
-        this.stage.setTitle(title);
+        stage.getIcons().add(icon);
+        stage.setTitle(title);
 
+        applyDisplayMode(stage);
+        centerStageOnScreen(stage);
+    }
+
+    private void centerStageOnScreen(final Stage stage) {
+        val bounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((bounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((bounds.getHeight() - stage.getHeight()) / 2);
+    }
+
+    private void applyDisplayMode(final Stage stage) {
         val isFullScreen = shouldBeFullScreen();
+
         if (isFullScreen) {
             enterFullScreen();
         } else {
             enterWindowed();
         }
-
-        centerStageOnScreen();
     }
 
     private boolean shouldBeFullScreen() {
@@ -57,25 +66,21 @@ public class MainStage {
     }
 
     private void enterFullScreen() {
-        this.stage.setFullScreen(true);
-        this.stage.setFullScreenExitHint(EMPTY_STRING);
-        this.stage.setFullScreenExitKeyCombination(NO_MATCH);
+        val stage = mainStage.get();
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint(EMPTY_STRING);
+        stage.setFullScreenExitKeyCombination(NO_MATCH);
     }
 
     private void enterWindowed() {
+        val stage = mainStage.get();
         val settings = settingsService.getSettings();
 
-        this.stage.setWidth(settings.getStageWidth());
-        this.stage.setHeight(settings.getStageHeight());
+        stage.setWidth(settings.getStageWidth());
+        stage.setHeight(settings.getStageHeight());
 
-        this.stage.setMinWidth(MINIMUM_STAGE_WIDTH);
-        this.stage.setMinHeight(MINIMUM_STAGE_HEIGHT);
-    }
-
-    private void centerStageOnScreen() {
-        val bounds = Screen.getPrimary().getVisualBounds();
-        this.stage.setX((bounds.getWidth() - this.stage.getWidth()) / 2);
-        this.stage.setY((bounds.getHeight() - this.stage.getHeight()) / 2);
+        stage.setMinWidth(MINIMUM_STAGE_WIDTH);
+        stage.setMinHeight(MINIMUM_STAGE_HEIGHT);
     }
 
 }

@@ -17,7 +17,9 @@ public class Shutdown {
         if (status == FAILURE) {
             log.error(reason.message());
         } else {
-            log.info(reason.message());
+            // log.info(reason.message());
+            // TODO: think about how to do this better
+            log.info("\u001B[32m" + reason.message() + "\u001B[0m");
         }
 
         System.exit(status.getCode());

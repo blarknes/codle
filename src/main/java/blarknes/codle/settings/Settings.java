@@ -1,4 +1,4 @@
-package blarknes.codle.ui.player;
+package blarknes.codle.settings;
 
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.AUTO;
@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// TODO: is this all needed?
 @Entity
 @Data
 @Builder
