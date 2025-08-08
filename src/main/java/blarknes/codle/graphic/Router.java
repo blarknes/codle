@@ -10,7 +10,7 @@ import lombok.val;
 
 @Component
 @RequiredArgsConstructor
-public class ScreenRouter {
+public class Router {
 
     private final MainStage mainStage;
     private final StageService stageService;

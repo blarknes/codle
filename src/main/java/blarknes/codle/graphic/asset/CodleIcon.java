@@ -1,3 +1,4 @@
+// OK
 package blarknes.codle.graphic.asset;
 
 import javafx.scene.image.Image;

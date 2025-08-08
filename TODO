@@ -1,8 +1,8 @@
 [ ] general stuff to do
   [o] make logo - get inspiration from wordle-like games
-    [ ] add logo to OS taskbar and window titlebar
+    [o] add logo to OS taskbar and window titlebar
+  [o] integrate with sqlite
   [ ] write readme
-  [ ] integrate with sqlite
     [ ] store possible languages on local db
     [?] if stats add it to db as well
   [ ] add javadocs
@@ -10,6 +10,10 @@
   [ ] add tests
     [ ] figure out a way to test the UI of the screens
   [ ] handle JavaFX errors better
+  [ ] fix linting on all files
+  [ ] rework shutdown handler
+  [ ] remove "// OK" from files after finished working on them
+  [ ] sync width, height and fullscreen from db to match scene changes
 
 [ ] design screens
   [ ] main screen

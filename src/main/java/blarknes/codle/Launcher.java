@@ -1,3 +1,4 @@
+// OK
 package blarknes.codle;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;

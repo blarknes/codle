@@ -4,6 +4,10 @@ import org.springframework.stereotype.Component;
 
 import javafx.stage.Stage;
 
+/**
+ * Wrapper class used to store the JavaFX's primary stage to have the ability of
+ * using it as a singleton.
+ */
 @Component
 public class MainStage {
 
@@ -13,10 +17,12 @@ public class MainStage {
     public synchronized void set(final Stage stage) {
         if (initialized) {
             // throw TODO: add throw
+            // IllegalState
         }
 
         if (null == stage) {
             // throw TODO: add throw
+            // IllegalArgument
         }
 
         this.stage = stage;
@@ -26,6 +32,7 @@ public class MainStage {
     public Stage get() {
         if (!initialized) {
             // throw TODO: add throw
+            // IllegalState
         }
 
         return this.stage;

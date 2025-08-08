@@ -1,3 +1,4 @@
+// OK
 package blarknes.codle.graphic.screen;
 
 import blarknes.codle.graphic.MainStage;

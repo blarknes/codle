@@ -1,3 +1,4 @@
+// OK
 package blarknes.codle.string;
 
 import lombok.experimental.UtilityClass;
