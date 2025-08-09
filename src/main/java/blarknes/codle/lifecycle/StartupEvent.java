@@ -5,6 +5,9 @@ import org.springframework.context.ApplicationEvent;
 import javafx.stage.Stage;
 import lombok.Getter;
 
+/**
+ * Event sent to the Spring context after the initialization of JavaFX.
+ */
 @Getter
 public class StartupEvent extends ApplicationEvent {
 
