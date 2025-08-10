@@ -19,10 +19,11 @@
   [ ] main screen
     [ ] brief description
     [ ] play button
-    [?] settings button - what would we have here?
+    [ ] exit (icon) button (to handle cases where users play fullscreen)
+    [?] settings (icon) button - what would we have here?
       [?] language selection with i18n?
       [?] screen resolution presets, but still give option to enlarge/shrink manually
-      [?] stats - maybe instead of hide this behind the settings screen have a screen only for it? would help with simmetry
+      [?] stats - maybe instead of hide this behind the settings screen have a (icon) button only for it? would help with simmetry
         [?] languages found - inspiration from Balatro library
         [?] best time
         [?] worst time
