@@ -7,7 +7,7 @@ package blarknes.codle.graphics.stage.exception;
 public class MainStageNotInitializedException extends IllegalStateException {
 
     public MainStageNotInitializedException() {
-        super("Tried to get Main Stage before it's initialization");
+        super("The Main Stage was accessed before it's initialization");
     }
 
 }
