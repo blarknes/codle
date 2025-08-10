@@ -3,6 +3,7 @@ package blarknes.codle.graphics;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import blarknes.codle.graphics.screens.home.HomeScreen;
 import blarknes.codle.graphics.stage.MainStage;
 import blarknes.codle.lifecycle.StartupEvent;
 import lombok.RequiredArgsConstructor;
@@ -17,13 +18,23 @@ import lombok.val;
 public class Router {
 
     private final MainStage mainStage;
+    private final HomeScreen homeScreen;
 
     @EventListener
     public void onStartupEvent(final StartupEvent event) {
         val stage = event.getStage();
         mainStage.set(stage);
 
+        showHomeScreen();
+
         stage.show();
+    }
+
+    /**
+     * Renders the home screen on the stage.
+     */
+    public void showHomeScreen() {
+        homeScreen.show();
     }
 
 }
