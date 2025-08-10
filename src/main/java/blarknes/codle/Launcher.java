@@ -38,7 +38,7 @@ public class Launcher extends Application {
             if (Objects.isNull(context)) {
                 throw new RuntimeException();
             }
-        } catch (Exception exception) {
+        } catch (Exception e) {
             shutdown.terminate(ShutdownReason.failure(SPRING_STARTUP_ERROR_MESSAGE));
         }
     }
