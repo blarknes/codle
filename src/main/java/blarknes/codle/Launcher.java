@@ -45,7 +45,11 @@ public class Launcher extends Application {
 
     @Override
     public void start(final Stage stage) {
-        context.publishEvent(new StartupEvent(stage));
+        try {
+            context.publishEvent(new StartupEvent(stage));
+        } catch (Exception e) {
+            shutdown.terminate(ShutdownReason.failure(e.getMessage()));
+        }
     }
 
     @Override
