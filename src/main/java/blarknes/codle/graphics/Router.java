@@ -2,7 +2,7 @@ package blarknes.codle.graphics;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
+import blarknes.codle.graphics.screens.game.GameScreen;
 import blarknes.codle.graphics.screens.home.HomeScreen;
 import blarknes.codle.graphics.stage.MainStage;
 import blarknes.codle.lifecycle.StartupEvent;
@@ -19,6 +19,7 @@ public class Router {
 
     private final MainStage mainStage;
     private final HomeScreen homeScreen;
+    private final GameScreen gameScreen;
 
     @EventListener
     public void onStartupEvent(final StartupEvent event) {
@@ -35,6 +36,13 @@ public class Router {
      */
     public void showHomeScreen() {
         homeScreen.show();
+    }
+
+    /**
+     * Renders the game screen on the stage.
+     */
+    public void showGameScreen() {
+        gameScreen.show();
     }
 
 }
