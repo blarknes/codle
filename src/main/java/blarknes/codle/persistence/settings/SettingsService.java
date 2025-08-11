@@ -39,10 +39,11 @@ public class SettingsService {
      * @return The user settings.
      */
     public Settings get() {
-        return settingsRepository.getReferenceById(SETTINGS_ID);
+        return settingsRepository.findById(SETTINGS_ID)
+            .orElse(createDefaultSettings());
     }
 
-    private void createDefaultSettings() {
+    private Settings createDefaultSettings() {
         val settings = Settings.builder()
             .stageWidth(DEFAULT_STAGE_WIDTH)
             .stageHeight(DEFAULT_STAGE_HEIGHT)
@@ -51,6 +52,8 @@ public class SettingsService {
             .build();
 
         settingsRepository.save(settings);
+
+        return settings;
     }
 
 }
