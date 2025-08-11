@@ -14,6 +14,7 @@
   [ ] rework shutdown handler
   [ ] remove "// OK" from files after finished working on them
   [ ] sync width, height and fullscreen from db to match scene changes
+  [ ] add player/PlayerStats.java
 
 [ ] design screens
   [ ] main screen
