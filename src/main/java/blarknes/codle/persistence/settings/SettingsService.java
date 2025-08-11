@@ -33,6 +33,11 @@ public class SettingsService {
         }
     }
 
+    /**
+     * Get the user preferred settings from the database.
+     *
+     * @return The user settings.
+     */
     public Settings get() {
         return settingsRepository.getReferenceById(SETTINGS_ID);
     }
