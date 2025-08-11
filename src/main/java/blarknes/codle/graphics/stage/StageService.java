@@ -11,6 +11,7 @@ import javafx.stage.Screen;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
+// TODO: add javadoc
 @Service
 @RequiredArgsConstructor
 public class StageService {
@@ -24,6 +25,7 @@ public class StageService {
     private static final int MINIMUM_STAGE_WIDTH = 1024;
     private static final int MINIMUM_STAGE_HEIGHT = 576;
 
+    // TODO: add javadoc
     public void initialize() {
         setupStageBasics();
         applyDisplayMode();
