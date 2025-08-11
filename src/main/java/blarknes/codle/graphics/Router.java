@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import blarknes.codle.graphics.screens.game.GameScreen;
 import blarknes.codle.graphics.screens.home.HomeScreen;
 import blarknes.codle.graphics.stage.MainStage;
+import blarknes.codle.graphics.stage.StageService;
 import blarknes.codle.lifecycle.StartupEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -20,12 +21,14 @@ public class Router {
     private final MainStage mainStage;
     private final HomeScreen homeScreen;
     private final GameScreen gameScreen;
+    private final StageService stageService;
 
     @EventListener
     public void onStartupEvent(final StartupEvent event) {
         val stage = event.getStage();
         mainStage.set(stage);
 
+        stageService.initialize();
         showHomeScreen();
 
         stage.show();
