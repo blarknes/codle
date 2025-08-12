@@ -39,6 +39,9 @@ dependencies {
     // SQLite
     implementation("org.xerial:sqlite-jdbc:3.50.3.0")
 
+    // ControlsFX
+    implementation("org.controlsfx:controlsfx:11.2.2")
+
     // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
