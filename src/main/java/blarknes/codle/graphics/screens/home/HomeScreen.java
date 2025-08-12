@@ -1,11 +1,14 @@
 package blarknes.codle.graphics.screens.home;
 
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.BAR_CHART;
+import static org.controlsfx.glyphfont.FontAwesome.Glyph.GEARS;
+
 import org.springframework.stereotype.Component;
 
+import blarknes.codle.graphics.assets.IconButton;
 import blarknes.codle.graphics.screens.Screen;
 import blarknes.codle.graphics.stage.MainStage;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lombok.val;
 
@@ -20,12 +23,13 @@ public class HomeScreen extends Screen {
         super(mainStage);
     }
 
-    protected Scene getScene() {
-        val root = new StackPane();
+    protected void populate(final VBox root) {
         val todo = new Text("TODO: implement the home screen");
-        root.getChildren().addAll(todo);
 
-        return new Scene(root);
+        val gearButton = new IconButton(GEARS);
+        val chartButton = new IconButton(BAR_CHART);
+
+        root.getChildren().addAll(todo, gearButton, chartButton);
     }
 
 }

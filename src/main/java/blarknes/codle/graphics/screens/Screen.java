@@ -1,7 +1,10 @@
 package blarknes.codle.graphics.screens;
 
+import static javafx.geometry.Pos.CENTER;
+
 import blarknes.codle.graphics.stage.MainStage;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 
@@ -18,16 +21,30 @@ public abstract class Screen {
      */
     public void show() {
         val stage = mainStage.get();
-        val scene = getScene();
+        val scene = buildScene();
 
         stage.setScene(scene);
     }
 
     /**
-     * Get the scene from a specific screen.
+     * Create the Scene to be used on a specific screen.
      *
      * @return The scene to be rendered.
      */
-    protected abstract Scene getScene();
+    private Scene buildScene() {
+        val root = new VBox();
+        root.setAlignment(CENTER);
+
+        populate(root);
+
+        return new Scene(root);
+    }
+
+    /**
+     * Add the contents to the root parent of the screen.
+     *
+     * @param root the root parent of the screen
+     */
+    protected abstract void populate(final VBox root);
 
 }

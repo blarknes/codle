@@ -4,8 +4,7 @@ import org.springframework.stereotype.Component;
 
 import blarknes.codle.graphics.screens.Screen;
 import blarknes.codle.graphics.stage.MainStage;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import lombok.val;
 
@@ -20,12 +19,9 @@ public class GameScreen extends Screen {
         super(mainStage);
     }
 
-    protected Scene getScene() {
-        val root = new StackPane();
+    protected void populate(final VBox root) {
         val todo = new Text("TODO: implement the game screen");
         root.getChildren().addAll(todo);
-
-        return new Scene(root);
     }
 
 }
